@@ -38,7 +38,7 @@
 
 ## Customizando as configurações do `webpack`
 
-1. Apague todo o conteúdo do diretório `src`, e então crie os sub-diretórios:
+1. Apague todo o conteúdo dos diretórios `src` e `public`, e então na pasta `src` crie os sub-diretórios:
 
     - `src/components/`: onde ficarão os componentes da nossa aplicação
     - `src/entries/`: onde ficarão os arquivos responsáveis por expor os componentes que serão compilados individualmente
@@ -180,6 +180,7 @@ definir como será realizado a pré-visualização dos componentes durante o des
         +         filename: fileName + '.html',
         +         chunks: [fileName],
         +         inject: false,
+        +         scriptLoading: 'blocking',
         +         ...(isEnvProduction ? productionOptions : developmentOptions)
         +       });
         +     }),
@@ -270,3 +271,34 @@ definir como será realizado a pré-visualização dos componentes durante o des
 
 ## Integrando os componentes React na aplicação legada
 
+1. Clone ou baixe o projeto do repositório: https://github.com/douglasjunior/php-legacy-code-example
+
+1. O projeto PHP consiste em uma aplicação simples, que utiliza PHP para renderizar páginas HTML no servidor. Para inciá-la, basta acessar a raiz do repositório e executar o comando `docker-compose up`, após a inicialização acesse no navegador `http://127.0.0.1:8000`.
+
+1. Finalmente, para adicionar nossos componentes React a aplicação PHP, devemos:
+
+    - Copiar todo o conteúdo da pasta `build/` gerado quando executamos `npm run build`, para dentro da pasta `src/` da aplicação PHP.
+
+    - Incluir/injetar o arquivo HTML do nosso componente, na seção `<head>` do arquivo `src/index.php`, exemplo:
+
+        ```html
+        <head>
+          <?php include_once('./HelloWorld.html') ?>
+        </head>
+        ```
+
+    - Finalmente, renderizar o componente no local desejado dentro da seção `<body>` ou outro sub-componente, exemplo:
+
+        ```html
+        <body>
+          <script>
+            window.renderReactComponent.HelloWorld();
+          </script>
+
+          <main class="app">
+          <!-- outros conteúdos da aplicação -->
+          </main>
+        </body>
+        ```
+
+1. Pronto, você acaba de renderizar um componente React moderno em uma aplicação PHP legada!

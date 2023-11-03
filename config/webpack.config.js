@@ -614,6 +614,7 @@ module.exports = function (webpackEnv) {
           filename: fileName + '.html',
           chunks: [fileName],
           inject: false,
+          scriptLoading: 'blocking',
           ...(isEnvProduction ? productionOptions : developmentOptions)
         });
       }),
