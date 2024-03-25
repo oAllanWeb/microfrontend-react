@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import styles from './HelloWorld.module.css';
+
+import { Button } from '@nextui-org/react';
+
 
 const HelloWorld = () => {
   const [counter, setCounter] = useState(0);
@@ -8,10 +10,11 @@ const HelloWorld = () => {
   return (
     <div>
       <h1>Olá Mundo!</h1>
-      <div className={styles.counter}>
-        <button onClick={decrement}>-</button>
+      <div className="counter">
+
+        <Button color='primary' onClick={decrement}>-</Button>
         <span>{counter}</span>
-        <button onClick={increment}>+</button>
+        <Button color='primary' onClick={increment}>+</Button>
       </div>
     </div>
   );

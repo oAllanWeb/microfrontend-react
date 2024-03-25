@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
+    "@nextui-org/react": "^2.2.10",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.18",
+    "axios": "^1.6.7",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-named-asset-import": "^0.3.8",
@@ -25,6 +28,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
+    "framer-motion": "^11.0.12",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
@@ -32,9 +36,11 @@
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "postcss": "^8.4.4",
+    "nodemon": "^3.1.0",
+    "postcss": "^8.4.35",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^6.2.1",
+    "postcss-import": "^16.0.1",
+    "postcss-loader": "^8.1.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.0.1",
     "prompts": "^2.4.2",
@@ -49,7 +55,7 @@
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
-    "tailwindcss": "^3.0.2",
+    "tailwindcss": "^3.4.1",
     "terser-webpack-plugin": "^5.2.5",
     "web-vitals": "^2.1.4",
     "webpack": "^5.64.4",
@@ -58,7 +64,7 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "nodemon scripts/build.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
@@ -146,5 +152,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "@tailwindcss/postcss7-compat": "^2.2.17"
   }
 }

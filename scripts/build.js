@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
@@ -210,6 +210,7 @@ function build(previousFileSizes) {
 }
 
 function copyPublicFolder() {
+  console.log({appPublic:paths.appPublic, appBuild:paths.appBuild})
   fs.copySync(paths.appPublic, paths.appBuild, {
     dereference: true,
     filter: file => file !== paths.appHtml,

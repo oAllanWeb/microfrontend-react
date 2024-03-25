@@ -1,8 +1,8 @@
+import '../default.css';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-
+import {NextUIProvider} from "@nextui-org/react";
 window.renderReactComponent = window.renderReactComponent || {};
-
 /**
  * Define os providers a serem utilizados pelos componentes.
  * 
@@ -10,9 +10,11 @@ window.renderReactComponent = window.renderReactComponent || {};
  */
 const Providers = ({ children }) => {
   return (
-    <Suspense fallback="Carregando ...">
-      {children}
-    </Suspense>
+    <NextUIProvider>
+      <Suspense fallback="Carregando ...">
+        {children}
+      </Suspense>
+    </NextUIProvider>
   );
 };
 
