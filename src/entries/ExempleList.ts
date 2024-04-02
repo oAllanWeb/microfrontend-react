@@ -1,4 +1,4 @@
-import ExempleList from '../components/ExempleList';
+import ExempleList from '../pages/ExempleList';
 import { createEntry } from '../helpers/entries';
 
 
