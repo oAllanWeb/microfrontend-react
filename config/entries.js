@@ -8,9 +8,9 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 // Obtém todos os arquivos (componentes) de entrada
 const entryFiles = fs
   .readdirSync(resolveApp('src/entries'))
-  .filter(fileName => /\.js$/.test(fileName));
+  .filter(fileName => /\.(js|mjs|jsx|ts|tsx)$/.test(fileName));
 const entries = entryFiles.reduce((result, fileName) => {
-  const key = fileName.replace('.js', '');
+  const key = fileName.replace(/\.(js|mjs|jsx|ts|tsx)$/, '');
   return {
     ...result,
     [key]: resolveApp(`src/entries/${fileName}`),

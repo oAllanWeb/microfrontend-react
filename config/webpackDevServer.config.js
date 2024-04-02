@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
@@ -89,6 +89,7 @@ module.exports = function (proxy, allowedHost) {
       // from the root.
       // remove last slash so user can land on `/test` instead of `/test/`
       publicPath: paths.publicUrlOrPath.slice(0, -1),
+			writeToDisk: true
     },
 
     https: getHttpsConfig(),
